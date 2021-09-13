@@ -1,24 +1,47 @@
-import logo from './logo.svg';
 import './App.css';
+import {BrowserRouter as Router , Switch as Switcher, Route} from 'react-router-dom'
+import { useState, useEffect } from 'react'
+import Axios from 'axios'
+
+import Navbar from './components/Navbar';
+import Homepage from './components/Homepage';
+import Signup from './components/Signup';
+import Userspage from './components/Userspage';
+import Editpage from './components/Editpage';
 
 function App() {
+
+  const [users, setUsers] = useState([])
+  const [editReqObj, seteditReqObj] = useState("")
+
+  useEffect(() => {
+    Axios.get(`http://localhost:5000/all-users`)
+      .then((response)=>setUsers(response.data))
+      .catch((err)=>console.log(err))
+  }, [])
+  
+  const editPage= (userObj)=>{
+    seteditReqObj(userObj)    
+  } 
+ 
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>      
+        <Navbar />  
+        <Switcher>
+          <Route exact path="/crud-application-deploy">
+            <Homepage users={users}/>
+          </Route>       
+          <Route path="/users">
+            <Userspage users={users} editPage={editPage} />
+          </Route>   
+          <Route path="/sign-up">
+            <Signup />
+          </Route>
+          <Route>
+            <Editpage editReqObj={editReqObj}/>
+          </Route>        
+        </Switcher>          
+    </Router>
   );
 }
 
