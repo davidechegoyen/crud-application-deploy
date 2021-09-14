@@ -37,8 +37,7 @@ const Editpage = ({editReqObj}) => {
                     <h3>First Name: {firstName}</h3>
                     <h3>Last Name: {lastName}</h3>
                     <h3>Password: {password}</h3>
-                    <h3>Age: {age}</h3>
-                    <h3>Bias: {bias}</h3>
+                    <h3>Age: {age}</h3>                    
                     <div>
                         <label>Username:</label>
                         <input type="text" onChange={(e)=>setUsername(e.currentTarget.value)}></input>
@@ -58,17 +57,7 @@ const Editpage = ({editReqObj}) => {
                     <div>
                         <label>Age:</label>
                         <input type="number" onChange={(e)=>setAge(e.currentTarget.value)}></input>
-                    </div>
-                    <div>
-                        <label>Bias:</label>
-                        <select name="bias" id="bias" onChange={(e)=>setBias(e.currentTarget.value)}>
-                            <option value="Irene">Irene</option>
-                            <option value="Seulgi">Seulgi</option>
-                            <option value="Wendy">Wendy</option>
-                            <option value="Joy">Joy</option>
-                            <option value="Yeri">Yeri</option>
-                        </select>
-                    </div>
+                    </div>                    
                     <button onClick={editRequestSendHandler}>Submit</button>
                 </form>            
             </div>
