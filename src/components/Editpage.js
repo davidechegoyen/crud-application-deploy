@@ -20,7 +20,7 @@ const Editpage = ({editReqObj}) => {
             age: age,
             bias:bias
         }   
-    Axios.post(`http://localhost:5000/update/${editReqObj.id}`,edittedUserBody)
+    Axios.post(`https://crud-application1-heroku.herokuapp.com/update/${editReqObj.id}`,edittedUserBody)
             .then((response)=>console.log(`Message Sent`,response))            
             .catch((err)=>console.log(err))                   
     

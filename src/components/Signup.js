@@ -20,7 +20,7 @@ const Signup = () => {
             lastName: lastName,
             age: age,            
         }       
-        Axios.post("http://localhost:5000/add-user",newUser)
+        Axios.post("https://crud-application1-heroku.herokuapp.com/add-user",newUser)
             .then((response)=>console.log(`Message Sent`,response))
             .catch((err)=>console.log(err))    
             console.log(newUser)   

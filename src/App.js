@@ -15,7 +15,7 @@ function App() {
   const [editReqObj, seteditReqObj] = useState("")
 
   useEffect(() => {
-    Axios.get(`http://localhost:5000/all-users`)
+    Axios.get(`https://crud-application1-heroku.herokuapp.com/all-users`)
       .then((response)=>setUsers(response.data))
       .catch((err)=>console.log(err))
   }, [])

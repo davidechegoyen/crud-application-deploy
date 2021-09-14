@@ -5,7 +5,7 @@ const User = ({userName,firstName,lastName,age,bias,id,editPage}) => {
 
     const deleteUserHandler = ()=>{
         
-        Axios.delete(`http://localhost:5000/delete/${id}`)
+        Axios.delete(`https://crud-application1-heroku.herokuapp.com/delete/${id}`)
             .then((res)=>console.log(res))
             .catch((err)=>console.log(err))  
         window.location.reload()
