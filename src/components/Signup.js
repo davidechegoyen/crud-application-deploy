@@ -42,7 +42,7 @@ const Signup = () => {
                     </div>
                     <div>
                         <label>Password:</label>
-                        <input type="text" onChange={(e)=>setPassword(e.currentTarget.value)}></input>
+                        <input type="password" onChange={(e)=>setPassword(e.currentTarget.value)}></input>
                     </div>
                     <div>
                         <label>First Name:</label>
