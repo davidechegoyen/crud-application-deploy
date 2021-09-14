@@ -1,6 +1,7 @@
 import './Signup.css'
 import { useState } from 'react'
 import Axios from 'axios'
+import { useHistory } from 'react-router'
 
 const Signup = () => {
 
@@ -10,6 +11,7 @@ const Signup = () => {
     const [lastName, setLastName] = useState("")
     const [age, setAge] = useState(0)
     
+    const history = useHistory();
 
 
     const submitForm = () =>{       
@@ -22,10 +24,10 @@ const Signup = () => {
         }       
         Axios.post("https://crud-application1-heroku.herokuapp.com/add-user",newUser)
             .then((response)=>console.log(`Message Sent`,response))
-            .catch((err)=>console.log(err))    
-            console.log(newUser)   
+            .then(()=>window.location.reload())
+            .catch((err)=>console.log(err))                 
             
-        alert("Sign up successful!")
+        history.push("/crud-application-deploy")
 
    }
    

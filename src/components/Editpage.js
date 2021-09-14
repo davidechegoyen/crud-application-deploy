@@ -1,15 +1,17 @@
 import './Signup.css'
 import {useState} from 'react'
 import Axios from 'axios'
+import { useHistory } from 'react-router'
+
 const Editpage = ({editReqObj}) => {
 
+    const history = useHistory()
 
     const [username, setUsername] = useState(editReqObj.userName)
     const [password, setPassword] = useState(editReqObj.password)
     const [firstName, setFirstName] = useState(editReqObj.firstName)
     const [lastName, setLastName] = useState(editReqObj.lastName)
-    const [age, setAge] = useState(editReqObj.age)
-    const [bias, setBias] = useState(editReqObj.bias)
+    const [age, setAge] = useState(editReqObj.age)    
 
     const editRequestSendHandler = () =>{    
     const edittedUserBody = {
@@ -17,13 +19,14 @@ const Editpage = ({editReqObj}) => {
             password: password,
             firstName: firstName,
             lastName: lastName,
-            age: age,
-            bias:bias
+            age: age,            
         }   
     Axios.post(`https://crud-application1-heroku.herokuapp.com/update/${editReqObj.id}`,edittedUserBody)
-            .then((response)=>console.log(`Message Sent`,response))            
-            .catch((err)=>console.log(err))                   
-    
+            .then((response)=>console.log(`Message Sent`,response))  
+            .then(()=>window.location.reload())          
+            .catch((err)=>console.log(err))         
+
+        history.push("/crud-application-deploy")
     }
 
 
