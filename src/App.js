@@ -25,10 +25,10 @@ function App() {
   } 
  
   return (
-    <Router>      
+    <Router basename="/crud-application-deploy">      
         <Navbar />  
         <Switcher>
-          <Route exact path="/crud-application-deploy">
+          <Route exact path="/">
             <Homepage users={users}/>
           </Route>       
           <Route path="/users">

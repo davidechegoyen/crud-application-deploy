@@ -26,7 +26,7 @@ const Editpage = ({editReqObj}) => {
             .then(()=>window.location.reload())          
             .catch((err)=>console.log(err))         
 
-        history.push("/crud-application-deploy")
+        history.push("/")
     }
 
 
